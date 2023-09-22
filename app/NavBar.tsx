@@ -7,31 +7,41 @@ import { useState, useEffect } from "react";
 const NavBar = () => {
   const [toggleDropdown, setToggleDropdown] = useState(true);
   return (
-    <div className="flex p-3 bg-red-300">
-      <nav className="bg-slate-200 p-5 sm:flex hidden">
-        <Link className="mr-5 hover:bg-pink-400 " href="/">
+    <div className=" flex p-3 bg-blue-300 rounded-lg">
+      <nav className="bg-slate-200 p-3 hidden sm:flex sm:flex-row rounded-lg">
+        <Link className="sm:p-2 mr-5 hover:bg-pink-400 " href="/">
           Home
         </Link>
-        <Link className="mr-5 hover:bg-pink-400" href="/users">
+        <Link className="sm:p-2 mr-5 hover:bg-pink-400" href="/users">
           Users
         </Link>
-        <Link className="mr-5 hover:bg-pink-400" href="/users/new">
+        <Link className="sm:p-2 mr-5 hover:bg-pink-400" href="/users/new">
           New User
         </Link>
       </nav>
 
       {/* Mobile Nav */}
-      <nav className='sm:hidden flex flex-col p-2 bg-green-300' >
-      <Link className="mr-5 mb-1 hover:bg-pink-400 " href="/">
-          Home
-        </Link>
-        <Link className="mr-5 mb-1 hover:bg-pink-400" href="/users">
-          Users
-        </Link>
-        <Link className="mr-5 mb-1 hover:bg-pink-400" href="/users/new">
-          New User
-        </Link>
+      <details className="sm:hidden hover:cursor-pointer dropdown-hover">
+              <nav className="sm:hidden flex flex-col p-2 dropdown-content">
+          <Link className="p-2 mr-5 mb-1 hover:bg-pink-400 rounded-md" href="/">
+            Home
+          </Link>
+          <Link
+            className="p-2 mr-5 mb-1 hover:bg-pink-400 rounded-md"
+            href="/users"
+          >
+            Users
+          </Link>
+          <Link
+            className="p-2 mr-5 mb-1 hover:bg-pink-400 rounded-md"
+            href="/users/new"
+          >
+            New User
+          </Link>
       </nav>
+        </details> 
+
+
     </div>
   );
 };
