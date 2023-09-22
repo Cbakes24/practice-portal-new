@@ -21,8 +21,9 @@ const NavBar = () => {
       </nav>
 
       {/* Mobile Nav */}
-      <details className="sm:hidden hover:cursor-pointer dropdown-hover">
-              <nav className="sm:hidden flex flex-col p-2 dropdown-content">
+      <div className="sm:hidden dropdown dropdown-hover">
+      <label tabIndex={0} className=" btn m-1">DROP</label>
+              <nav tabIndex={0} className="sm:hidden flex flex-col w-max p-2 dropdown-content ">
           <Link className="p-2 mr-5 mb-1 hover:bg-pink-400 rounded-md" href="/">
             Home
           </Link>
@@ -39,7 +40,7 @@ const NavBar = () => {
             New User
           </Link>
       </nav>
-        </details> 
+        </div> 
 
 
     </div>

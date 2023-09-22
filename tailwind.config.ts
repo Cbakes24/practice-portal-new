@@ -13,8 +13,15 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        satoshi: ['Satoshi', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+      },
+      colors: {
+        'primary-orange': '#FF5722',
+      }
     },
   },
-  plugins: [require("daisyui")],
+  plugins:  [require('@tailwindcss/typography'), require("daisyui")],
 }
 export default config
