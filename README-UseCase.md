@@ -1,9 +1,24 @@
 # Customer Portal
 
+There are several programs used in the project.
+
+Node.js
+nextJs
+SST
+AWS
+ - S3
+ - DynamDB
+ - Cognito
+React
+Redux
+Html5
+Css
+Git
+Javascript
 
 ## Database Schema Design
 
-`<insert database schema design here>`
+`<insert database schema design here image from DBDiagram>`
 
 ## API Documentation
 
@@ -272,57 +287,62 @@ Returns all the projects created by the current user.
       "id": 1,
       "itemId": 1,
       "name": "address + Username?",
-      "address": "hi",
-      "email": "hi",
-      "phone": "hi",
-      "signatureDate": "hi",
-      "salesRep": "hi",
-      "surveyScheduleDate": "hi",
-      "surveyScheduleTime": "hi",
-      "surveyStatus": "hi",
-      "surveyCompleteDate":"hi",
-      "welcomeCallStatus": "hi",
-      "welcomeCallCompleteDate":"hi",
-      "dealStatus": "hi",
-      "overallStatus": "hi",
-      "ntpStatus": "hi",
-      "ntpCompletedDate": "hi",
-      "designStatus": "hi",
-      "designSubmittedDate": "hi",
-      "desiginReceivedDate": "hi",
-      "permitStatus": "hi",
-      "permitReceivedDate": "hi",
-      "permitApplied":"hi",
-      "permitAppliedDate": "hi",
-      "installStatus": "hi",
-      "installCompletedDate": "hi",
-      "systemPrice": "hi",
-      "ahjInspectionStatus": "hi",
-      "ahjInspectionDate": "hi",
-      "economicReviewStatus": "hi",
-      "economicReviewDate": "hi",
-      "mpuStatus": "hi",
-      "mpuDate": "hi",
-      "ptoStatus": "hi",
-      "ptoDate": "hi",
-      "panelQty": "hi",
-      "leadSource": "hi",
-      "setter": "hi",
-      "redline": "hi",
-      "systemPrice": "hi",
-      "downPayment": "hi",
-      "dealerPercentage": "hi",
-      "dealerFeeAmount": "hi",
-      "mp1": "hi",
-      "systemSize": "hi",
-      "adders": "hi",
-      "principle": "hi",
-      "netAdditional": "hi",
-      "PPW": "hi",
-      "netPPW": "hi",
-      "addersTotal": "hi",
-      "updates": "hi",
+      "address": "123 Happy Lane",
+      "email": "steve.johnson@gmail.com",
+      "phone": "617-482-5988",
+      "signatureDate": "default",
+      "salesRep": "default",
+      "surveyScheduleDate": "default",
+      "surveyScheduleTime": "default",
+      "surveyStatus": "default",
+      "surveyCompleteDate":"default",
+      "welcomeCallStatus": "default",
+      "welcomeCallCompleteDate":"default",
+      "dealStatus": "default",
+      "overallStatus": "default",
+      "ntpStatus": "default",
+      "ntpCompletedDate": "default",
+      "designStatus": "default",
+      "designSubmittedDate": "default",
+      "desiginReceivedDate": "default",
+      "permitStatus": "default",
+      "permitReceivedDate": "default",
+      "permitApplied":"default",
+      "permitAppliedDate": "default",
+      "installStatus": "default",
+      "installCompletedDate": "default",
+      "systemPrice": "default",
+      "ahjInspectionStatus": "default",
+      "ahjInspectionDate": "default",
+      "economicReviewStatus": "default",
+      "economicReviewDate": "default",
+      "mpuStatus": "default",
+      "mpuDate": "default",
+      "ptoStatus": "default",
+      "ptoDate": "default",
+      "panelQty": "default",
+      "leadSource": "default",
+      "setter": "default",
+      "redline": "default",
+      "systemPrice": "default",
+      "downPayment": "default",
+      "dealerPercentage": "default",
+      "dealerFeeAmount": "default",
+      "mp1": "default",
+      "systemSize": "default",
+      "adders": "default",
+      "principle": "default",
+      "netAdditional": "default",
+      "PPW": "default",
+      "netPPW": "default",
+      "addersTotal": "default",
+      "updates": "default",
     }
       ]
     }
     ```
+
+
+For a visual you can go to 	[Db Diagram](https://dbdiagram.io/) and test out how you want your schema to look.
+
+![DB Diagram](./public/CustomerPortal.png)
