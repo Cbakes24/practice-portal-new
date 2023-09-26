@@ -2,19 +2,19 @@
 
 There are several programs used in the project.
 
-Node.js
-nextJs
-SST
-AWS
- - S3
- - DynamDB
- - Cognito
-React
-Redux
-Html5
-Css
-Git
-Javascript
+* Node.js
+* nextJs
+* SST
+* AWS
+*  -S3
+*  -DynamDB
+*  -Cognito
+* React
+* Redux
+* Html5
+* Css
+* Git
+* Javascript
 
 ## Database Schema Design
 
@@ -168,7 +168,7 @@ user's information.
 
 1. A new user opens up the web appicliation and clicks on the sign up button.
 2. A sign up form page appears and the user inputs the information and submits. If successful the user is brought to the home screen and a welcome email is sent.
-3. The user is prompted to create their first project
+3. The user is brought to the hompage where they can view projects, create project, message customer service, 
 
 * Require Authentication: false
 * Request
@@ -261,12 +261,115 @@ user's information.
 ### Create A Project
 
 
+Creates and returns a new project.
+
+* Require Authentication: true
+* Request
+  * Method: POST
+  * URL: /projects/new
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+        "user inputs": "what does the user input and what i defaulted on OnPoints side."
+    }
+    ```
+
+* Successful Response
+  * Status Code: 201
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+         {
+      "id": 1,
+      "itemId": 1,
+      "name": "address + Username?",
+      "address": "123 Happy Lane",
+      "email": "steve.johnson@gmail.com",
+      "phone": "617-482-5988",
+      "signatureDate": "default",
+      "salesRep": "default",
+      "surveyScheduleDate": "default",
+      "surveyScheduleTime": "default",
+      "surveyStatus": "default",
+      "surveyCompleteDate":"default",
+      "welcomeCallStatus": "default",
+      "welcomeCallCompleteDate":"default",
+      "dealStatus": "default",
+      "overallStatus": "default",
+      "ntpStatus": "default",
+      "ntpCompletedDate": "default",
+      "designStatus": "default",
+      "designSubmittedDate": "default",
+      "desiginReceivedDate": "default",
+      "permitStatus": "default",
+      "permitReceivedDate": "default",
+      "permitApplied":"default",
+      "permitAppliedDate": "default",
+      "installStatus": "default",
+      "installCompletedDate": "default",
+      "systemPrice": "default",
+      "ahjInspectionStatus": "default",
+      "ahjInspectionDate": "default",
+      "economicReviewStatus": "default",
+      "economicReviewDate": "default",
+      "mpuStatus": "default",
+      "mpuDate": "default",
+      "ptoStatus": "default",
+      "ptoDate": "default",
+      "panelQty": "default",
+      "leadSource": "default",
+      "setter": "default",
+      "redline": "default",
+      "systemPrice": "default",
+      "downPayment": "default",
+      "dealerPercentage": "default",
+      "dealerFeeAmount": "default",
+      "mp1": "default",
+      "systemSize": "default",
+      "adders": "default",
+      "principle": "default",
+      "netAdditional": "default",
+      "PPW": "default",
+      "netPPW": "default",
+      "addersTotal": "default",
+      "updates": "default",
+    }
+    }
+    ```
+
+* Error Response: Body validation error
+  * Status Code: 400
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Validation Error",
+      "statusCode": 400,
+      "errors": {
+        "title": "project {field} is required"
+      }
+    }
+    ```
+
 
 
 ### Get Projects based on User
 
 User: Home Owner
 Returns all the projects created by the current user.
+
+1. User signs in from the login page
+2. If successful the user is brought to the Welcome Homepage. From here you can select your projects, messages, account info. 
+3. User clicks projects and is brought to the projects page where their project is displayed or if no project they are prompted to create a project.
+
 
 * Require Authentication: true
 * Request

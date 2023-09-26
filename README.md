@@ -18,40 +18,32 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# practice-portal-new
 
 
 # Customer Portal
 
-There are several programs used in the project.
+### Backends
 
-Node.js
-nextJs
-SST
-AWS
- - S3
- - DynamDB
- - Cognito
-React
-Redux
-Html5
-Css
-Git
-Javascript
+
+### Frontend
+For front end of CRUZ uses **next.js** to create components along with with **Redux** for storing the state to create a clean looking and responsive website
+that will feel very modern and easy to use for a user.
+There are several other programs used in the project.
+
+- Node.js
+- nextJs
+- SST
+- AWS
+* S3
+* DynamDB
+* Cognito
+- React
+- Redux
+- Html5
+- Css
+- Git
+- Javascript
 
 ## Database Schema Design
 
@@ -379,6 +371,95 @@ Returns all the projects created by the current user.
     }
     ```
 
+
+* Error response: Couldn't find a Project with the specified user id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Project couldn't be found",
+      "statusCode": 404
+    }
+    ```
+
+
+### Create a Project
+
+Creates and returns a new project with or without an album.
+
+* Require Authentication: true
+* Request
+  * Method: POST
+  * URL: /projects
+  * Headers:
+    * Content-Type: application/json
+  * Body :
+
+
+    ```json
+    {
+      "Projects": [
+        {
+      "id": 1,
+      "itemId": 1,
+      "name": "address + Username?",
+      "address": "123 Happy Lane",
+      "email": "steve.johnson@gmail.com",
+      "phone": "617-482-5988",
+      "signatureDate": "default",
+      "salesRep": "default",
+      "surveyScheduleDate": "default",
+      "surveyScheduleTime": "default",
+      "surveyStatus": "default",
+      "surveyCompleteDate":"default",
+      "welcomeCallStatus": "default",
+      "welcomeCallCompleteDate":"default",
+      "dealStatus": "default",
+      "overallStatus": "default",
+      "ntpStatus": "default",
+      "ntpCompletedDate": "default",
+      "designStatus": "default",
+      "designSubmittedDate": "default",
+      "desiginReceivedDate": "default",
+      "permitStatus": "default",
+      "permitReceivedDate": "default",
+      "permitApplied":"default",
+      "permitAppliedDate": "default",
+      "installStatus": "default",
+      "installCompletedDate": "default",
+      "systemPrice": "default",
+      "ahjInspectionStatus": "default",
+      "ahjInspectionDate": "default",
+      "economicReviewStatus": "default",
+      "economicReviewDate": "default",
+      "mpuStatus": "default",
+      "mpuDate": "default",
+      "ptoStatus": "default",
+      "ptoDate": "default",
+      "panelQty": "default",
+      "leadSource": "default",
+      "setter": "default",
+      "redline": "default",
+      "systemPrice": "default",
+      "downPayment": "default",
+      "dealerPercentage": "default",
+      "dealerFeeAmount": "default",
+      "mp1": "default",
+      "systemSize": "default",
+      "adders": "default",
+      "principle": "default",
+      "netAdditional": "default",
+      "PPW": "default",
+      "netPPW": "default",
+      "addersTotal": "default",
+      "updates": "default",
+    }
+      ]
+    }
+    ```
 
 For a visual you can go to 	[Db Diagram](https://dbdiagram.io/) and test out how you want your schema to look.
 
