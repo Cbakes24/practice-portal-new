@@ -6,9 +6,9 @@ There are several programs used in the project.
 * nextJs
 * SST
 * AWS
-*  -S3
-*  -DynamDB
-*  -Cognito
+    *  S3
+    *  DynamDB
+    *  Cognito
 * React
 * Redux
 * Html5
@@ -138,7 +138,7 @@ user's information.
 
 1. A new user opens up the web appicliation and clicks on the sign up button.
 2. A sign up form page appears and the user inputs the information and submits. If successful the user is brought to the home screen and a welcome email is sent.
-3. The user is brought to the hompage where they can view projects, create project, message customer service, 
+3. The user is brought to the homepage where they can view projects, create project, message customer service, view user info
 
 * Require Authentication: false
 * Request
@@ -169,7 +169,6 @@ user's information.
       "id": 1,
       "firstName": "Steve",
       "lastName": "Johnson",
-      "username": "SteveJohnson",
       "email": "Steve.Johnson@gmail.com",
       "phone": "555-555-5555",
       "createdAt": "2021-11-19 20:39:36",
@@ -219,7 +218,7 @@ user's information.
       "message": "Validation error",
       "statusCode": 400,
       "errors": {
-        "email": "Invalid email",
+        "email": "Valid email address is required",
         "phone": "Phone is required",
         "firstName": "First Name is required",
         "lastName": "Last Name is required",
@@ -229,14 +228,21 @@ user's information.
     ```
 
 ### Update a User
+User: Home Owner/Admin
 
-Updates and returns an existing user.
+Updates and returns an existing user information
+
+1. User logs in
+2. User selects User Info and is sent to the user page
+3. Back button, and Edit button, user clicks edit
+4. User information form screen is shown, edits can be made and submitted. All fields must be populated
+5. User is returned to User info page
 
 * Require Authentication: true
 * Require proper authorization: user must belong to the current user
 * Request
   * Method: PUT
-  * URL: /users/:userId
+  * URL: /users/:userId/edit
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -245,7 +251,6 @@ Updates and returns an existing user.
     {
       "firstName": "Steve",
       "lastName": "Johnson",
-      "username": "SteveJohnson",
       "email": "Steve.Johnson@gmail.com",
       "phone": "777-777-7777",
       "password": "secret password"
@@ -261,12 +266,12 @@ Updates and returns an existing user.
     ```json
     
     {
+      "id": 1,
       "firstName": "Steve",
       "lastName": "Johnson",
-      "username": "SteveJohnson",
       "email": "Steve.Johnson@gmail.com",
       "phone": "777-777-7777",
-      "updatedAt": "2021-11-20 20:00:00",
+      "updatedAt": "2023-11-20 20:00:00",
     }
     ```
 
@@ -297,7 +302,7 @@ Updates and returns an existing user.
 
     ```json
     {
-      "message": "user couldn't be found",
+      "message": "user login credentials email/password couldn't be found",
       "statusCode": 404
     }
     ```
@@ -355,7 +360,8 @@ Creates and returns a new project.
 
     ```json
     {
-        "user inputs": "what does the user input and what i defaulted on OnPoints side."
+        "fieldName": "WHAT FIELDS SHOULD BE EDITABLE AND ARE REQUIRED",
+        "user inputs": "what does the user input and what inouts are defaulted and updated on OnPoint's side?"
     }
     ```
 
@@ -372,8 +378,8 @@ Creates and returns a new project.
       "itemId": 1,
       "name": "address + Username?",
       "address": "123 Happy Lane",
-      "email": "steve.johnson@gmail.com",
-      "phone": "617-482-5988",
+      "ownerEmail": "steve.johnson@gmail.com",
+      "ownerPhone": "617-482-5988",
       "signatureDate": "default",
       "salesRep": "default",
       "surveyScheduleDate": "default",
@@ -446,6 +452,7 @@ Creates and returns a new project.
 ### Get Projects based on User
 
 User: Home Owner
+
 Returns all the projects created by the current user.
 
 1. User signs in from the login page
@@ -528,6 +535,127 @@ Returns all the projects created by the current user.
     ```
 
 ### Update Project Information - User?
+User: Home Owner/Admin
+
+Updates and returns project editable information
+
+1. User logs in
+2. User selects Projects  and is sent to the project page
+3. User can view project status or edit project
+4. Edits to specific info can be made and submitted. 
+5. User is returned to Project Status page
+
+* Require Authentication: true
+* Require proper authorization: project must belong to the current user
+* Request
+  * Method: PUT
+  * URL: /users/:userId/projects/edit
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "fieldName": "WHAT FIELDS SHOULD BE EDITABLE AND ARE REQUIRED",
+      "project": "Project name",
+
+    }
+    ```
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    
+         {
+      "id": 1,
+      "itemId": 1,
+      "name": "address + Username?",
+      "address": "123 Happy Lane",
+      "ownerEmail": "steve.johnson@gmail.com",
+      "ownerPhone": "617-482-5988",
+      "signatureDate": "default",
+      "salesRep": "default",
+      "surveyScheduleDate": "default",
+      "surveyScheduleTime": "default",
+      "surveyStatus": "default",
+      "surveyCompleteDate":"default",
+      "welcomeCallStatus": "default",
+      "welcomeCallCompleteDate":"default",
+      "dealStatus": "default",
+      "overallStatus": "default",
+      "ntpStatus": "default",
+      "ntpCompletedDate": "default",
+      "designStatus": "default",
+      "designSubmittedDate": "default",
+      "desiginReceivedDate": "default",
+      "permitStatus": "default",
+      "permitReceivedDate": "default",
+      "permitApplied":"default",
+      "permitAppliedDate": "default",
+      "installStatus": "default",
+      "installCompletedDate": "default",
+      "systemPrice": "default",
+      "ahjInspectionStatus": "default",
+      "ahjInspectionDate": "default",
+      "economicReviewStatus": "default",
+      "economicReviewDate": "default",
+      "mpuStatus": "default",
+      "mpuDate": "default",
+      "ptoStatus": "default",
+      "ptoDate": "default",
+      "panelQty": "default",
+      "leadSource": "default",
+      "setter": "default",
+      "redline": "default",
+      "systemPrice": "default",
+      "downPayment": "default",
+      "dealerPercentage": "default",
+      "dealerFeeAmount": "default",
+      "mp1": "default",
+      "systemSize": "default",
+      "adders": "default",
+      "principle": "default",
+      "netAdditional": "default",
+      "PPW": "default",
+      "netPPW": "default",
+      "addersTotal": "default",
+      "updates": "default",
+    }
+    ```
+
+* Error Response: Body validation error
+  * Status Code: 400
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Validation Error",
+      "statusCode": 400,
+      "errors": {
+            "fieldName": "WHAT FIELDS SHOULD BE EDITABLE AND ARE REQUIRED",
+
+      }
+    }
+    ```
+
+* Error response: Couldn't find a user with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "user login credentials email/password couldn't be found",
+      "statusCode": 404
+    }
+    ```
 
 
 ### Update Project Information - OnPoint
