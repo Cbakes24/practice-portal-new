@@ -16,9 +16,6 @@ There are several programs used in the project.
 * Git
 * Javascript
 
-## Database Schema Design
-
-`<insert database schema design here image from DBDiagram>`
 
 ## API Documentation
 
@@ -61,33 +58,7 @@ correct role(s) or permission(s).
     }
     ```
 
-### Get the Current User
-User: Customer Service
 
-
-Returns the information about the current user that is logged in. For backend use to get informaiton about a specific customer.
-
-* Require Authentication: true
-* Request
-  * Method: GET
-  * URL: /user/:userId
-  * Body: none
-
-* Successful Response
-  * Status Code: 200
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "id": 1,
-      "firstName": "Steve",
-      "lastName": "Johnson",
-      "email": "steve.johnson@gmail.com",
-      "username": "SteveJohnson"
-    }
-    ```
 
 ### Log In a User
 User: Home Owner
@@ -125,8 +96,7 @@ information.
       "firstName": "Steve",
       "lastName": "Johnson",
       "email": "Steve.Johnson@gmail.com",
-      "username": "Steve",
-      "token": ""
+      "phone": "555-555-5555"
     }
     ```
 
@@ -182,8 +152,8 @@ user's information.
     {
       "firstName": "Steve",
       "lastName": "Johnson",
-      "username": "SteveJohnson",
       "email": "Steve.Johnson@gmail.com",
+      "phone": "555-555-5555",
       "password": "secret password"
     }
     ```
@@ -201,7 +171,8 @@ user's information.
       "lastName": "Johnson",
       "username": "SteveJohnson",
       "email": "Steve.Johnson@gmail.com",
-      "token": ""
+      "phone": "555-555-5555",
+      "createdAt": "2021-11-19 20:39:36",
     }
     ```
 
@@ -249,18 +220,129 @@ user's information.
       "statusCode": 400,
       "errors": {
         "email": "Invalid email",
-        "username": "Username is required",
+        "phone": "Phone is required",
         "firstName": "First Name is required",
-        "lastName": "Last Name is required"
+        "lastName": "Last Name is required",
+        "password": "Password is required"
       }
     }
     ```
+
+### Update a User
+
+Updates and returns an existing user.
+
+* Require Authentication: true
+* Require proper authorization: user must belong to the current user
+* Request
+  * Method: PUT
+  * URL: /users/:userId
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "firstName": "Steve",
+      "lastName": "Johnson",
+      "username": "SteveJohnson",
+      "email": "Steve.Johnson@gmail.com",
+      "phone": "777-777-7777",
+      "password": "secret password"
+    }
+    ```
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    
+    {
+      "firstName": "Steve",
+      "lastName": "Johnson",
+      "username": "SteveJohnson",
+      "email": "Steve.Johnson@gmail.com",
+      "phone": "777-777-7777",
+      "updatedAt": "2021-11-20 20:00:00",
+    }
+    ```
+
+* Error Response: Body validation error
+  * Status Code: 400
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Validation Error",
+      "statusCode": 400,
+      "errors": {
+            "lastName": "Last name is required",
+            "username": "First name is required",
+            "email": "Email is required",
+            "phone": "Phone number is required"
+      }
+    }
+    ```
+
+* Error response: Couldn't find a user with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "user couldn't be found",
+      "statusCode": 404
+    }
+    ```
+
+
+### Get the Current User
+User: Customer Service
+
+
+Returns the information about the current user that is logged in. For backend use to get informaiton about a specific customer.
+
+* Require Authentication: true
+* Request
+  * Method: GET
+  * URL: /user/:userId
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "id": 1,
+      "firstName": "Steve",
+      "lastName": "Johnson",
+      "email": "steve.johnson@gmail.com",
+      "username": "SteveJohnson",
+      "phone": "555-555-5555",
+
+    }
+    ```
+
+
 
 ## Projects
 
 ### Create A Project
 
-
+1. Once user is logged in they are brought tot he hompage. 
+2. Here they have the option to view current project or create a project
+3. User selects create project and the project form pops up. 
+4. User fills out the fields and submits
 Creates and returns a new project.
 
 * Require Authentication: true
@@ -445,7 +527,13 @@ Returns all the projects created by the current user.
     }
     ```
 
+### Update Project Information - User?
 
+
+### Update Project Information - OnPoint
+
+
+## Database Schema Design
 For a visual you can go to 	[Db Diagram](https://dbdiagram.io/) and test out how you want your schema to look.
 
 ![DB Diagram](./public/CustomerPortal.png)
